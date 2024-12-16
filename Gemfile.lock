@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    pkce_oauth (0.1.0)
+    pkce_oauth (0.2.0)
       rake (~> 13.0)
       rake-compiler (~> 1.2.0)
       rb_sys (~> 0.9.91)

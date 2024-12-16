@@ -1,24 +1,49 @@
 # PkceOauth
 
-
+Proof Key for Code Exchange (PKCE) for ruby built with rust.
 
 ## Installation
 
-Install the gem and add to the application's Gemfile by executing:
+Add this line to your application's Gemfile:
 
-```bash
-bundle add pkce_oauth
-```
-
-If bundler is not being used to manage dependencies, install the gem by executing:
-
-```bash
-gem install pkce_oauth
+```ruby
+gem 'pkce_oauth'
 ```
 
 ## Usage
 
+```ruby
+# @return [Hash] keys: code_verifier, code_challenge
+# code_verifier - random key
+# code_challenge - Base64 url-encoded string of the SHA256 hash of the code verifier
+PkceOauth.challenge
+```
 
+```ruby
+# @return [Hash] keys: code_verifier, code_challenge
+PkceOauth.challenge(key_length: 64)
+```
+
+```ruby
+# @return [Boolean]
+PkceOauth.challenge_valid?(code_verifier: code_verifier, code_challenge: code_challenge)
+```
+
+## Usage with dry-container
+
+If you use dry-container for class memoization and use `PkceOauth.challenge` with the same options, then you can add initialized objects to container
+
+```ruby
+register('pkce_challenge') { PkceOauth::Challenge.new }
+register('pkce_comparator') { PkceOauth::Comparator.new }
+```
+
+and later call them
+
+```ruby
+pkce_challenge.call
+pkce_comparator.equal?(code_verifier: code_verifier, code_challenge: code_challenge)
+```
 
 ## Development
 
