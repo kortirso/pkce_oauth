@@ -29,7 +29,7 @@ PkceOauth.challenge(key_length: 64)
 PkceOauth.challenge_valid?(code_verifier: code_verifier, code_challenge: code_challenge)
 ```
 
-## Usage with dry-container
+### Usage with dry-container
 
 If you use dry-container for class memoization and use `PkceOauth.challenge` with the same options, then you can add initialized objects to container
 
@@ -43,6 +43,16 @@ and later call them
 ```ruby
 pkce_challenge.call
 pkce_comparator.equal?(code_verifier: code_verifier, code_challenge: code_challenge)
+```
+
+### Direct usage
+
+You can directly call generating code verifier and code challenge
+
+```ruby
+PkceOauth.generate_code_verifier
+PkceOauth.generate_limited_code_verifier(64)
+PkceOauth.generate_code_challenge(code_verifier)
 ```
 
 ## Development
