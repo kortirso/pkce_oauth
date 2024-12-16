@@ -11,7 +11,7 @@ RuboCop::RakeTask.new
 
 require 'rb_sys/extensiontask'
 
-task build: :compile
+task build: :compile # rubocop: disable Rake/Desc
 
 GEMSPEC = Gem::Specification.load('pkce_oauth.gemspec')
 

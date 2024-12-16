@@ -49,6 +49,13 @@ GEM
       unicode-display_width (>= 2.4.0, < 4.0)
     rubocop-ast (1.37.0)
       parser (>= 3.3.1.0)
+    rubocop-performance (1.23.0)
+      rubocop (>= 1.48.1, < 2.0)
+      rubocop-ast (>= 1.31.1, < 2.0)
+    rubocop-rake (0.6.0)
+      rubocop (~> 1.0)
+    rubocop-rspec (3.3.0)
+      rubocop (~> 1.61)
     ruby-progressbar (1.13.0)
     unicode-display_width (3.1.2)
       unicode-emoji (~> 4.0, >= 4.0.4)
@@ -60,8 +67,11 @@ PLATFORMS
 
 DEPENDENCIES
   pkce_oauth!
-  rspec
+  rspec (~> 3.13)
   rubocop (~> 1.39)
+  rubocop-performance (~> 1.8)
+  rubocop-rake (~> 0.6)
+  rubocop-rspec (~> 3.0)
 
 BUNDLED WITH
    2.5.23

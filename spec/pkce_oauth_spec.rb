@@ -6,6 +6,6 @@ RSpec.describe PkceOauth do
   end
 
   it 'does something useful' do
-    expect(PkceOauth.hello('User')).to eq 'Hello from Rust, User!'
+    expect(described_class.hello('User')).to eq 'Hello from Rust, User!'
   end
 end
