@@ -1,20 +1,8 @@
-use base64_url::escape;
 use magnus::{function, prelude::*, Error, Ruby};
-use rand::{thread_rng, Rng};
-//use rand::distributions::Alphanumeric;
-use sha256::digest;
+use pkce;
 
 fn generate_limited_code_verifier(length: usize) -> String {
-  const CHARSET: &[u8] = b"ABCDEFGHIJKLMNOPQRSTUVWXYZ\
-                            abcdefghijklmnopqrstuvwxyz\
-                            0123456789-_";
-  let mut rng = thread_rng();
-  (0..length)
-    .map(|_| {
-      let index = rng.gen_range(0..CHARSET.len());
-      CHARSET[index] as char
-    })
-    .collect()
+  String::from_utf8(pkce::code_verifier(length)).expect("REASON")
 }
 
 fn generate_code_verifier() -> String {
@@ -22,7 +10,7 @@ fn generate_code_verifier() -> String {
 }
 
 fn generate_code_challenge(code_verifier: String) -> String {
-  escape(&digest(code_verifier)).to_string()
+  pkce::code_challenge(&code_verifier.as_bytes())
 }
 
 #[magnus::init]

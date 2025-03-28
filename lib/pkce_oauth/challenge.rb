@@ -4,7 +4,7 @@ module PkceOauth
   class Challenge
     attr_reader :verifier, :challenger
 
-    def initialize(verifier: Verifier, challenger: Challenger, **options)
+    def initialize(verifier: CodeVerifier, challenger: CodeChallenger, **options)
       @verifier = verifier.new(**options.slice(:key_length))
       @challenger = challenger.new
     end

@@ -1,3 +1,7 @@
+## [0.2.1] - 2025-03-28
+### Modified
+- using rust package pkce
+
 ## [0.2.0] - 2024-12-16
 ### Added
 - generating random key with charset

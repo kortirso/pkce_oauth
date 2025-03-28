@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module PkceOauth
-  class Verifier
+  class CodeVerifier
     class KeyLengthError < StandardError; end
 
     MINIMUM_KEY_LENGTH = 43

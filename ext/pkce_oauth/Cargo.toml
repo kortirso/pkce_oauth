@@ -1,6 +1,6 @@
 [package]
 name = "pkce_oauth"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["Bogdanov Anton <kortirso@gmail.com>"]
 license = "MIT"
@@ -10,7 +10,5 @@ publish = false
 crate-type = ["cdylib"]
 
 [dependencies]
-base64-url = { version = "3.0.0" }
-magnus = { version = "0.6.2" }
-rand = { version = "0.8.5" }
-sha256 = { version = "1.5.0" }
+magnus = { version = "0.7" }
+pkce = { version = "0.2.0" }

@@ -2,22 +2,21 @@
 
 require_relative 'pkce_oauth/version'
 require_relative 'pkce_oauth/pkce_oauth'
+require_relative 'pkce_oauth/code_verifier'
+require_relative 'pkce_oauth/code_challenger'
 require_relative 'pkce_oauth/challenge'
-require_relative 'pkce_oauth/comparator'
-require_relative 'pkce_oauth/verifier'
-require_relative 'pkce_oauth/challenger'
+require_relative 'pkce_oauth/comparison'
 
 module PkceOauth
   module_function
 
   class Error < StandardError; end
-  # Your code goes here...
 
   def challenge(...)
     PkceOauth::Challenge.new(...).call
   end
 
   def challenge_valid?(...)
-    PkceOauth::Comparator.new.equal?(...)
+    PkceOauth::Comparison.new.equal?(...)
   end
 end

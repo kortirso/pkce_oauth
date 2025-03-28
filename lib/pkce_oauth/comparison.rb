@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 module PkceOauth
-  class Comparator
+  class Comparison
     attr_reader :challenger
 
-    def initialize(challenger: Challenger)
+    def initialize(challenger: CodeChallenger)
       @challenger = challenger.new
     end
 

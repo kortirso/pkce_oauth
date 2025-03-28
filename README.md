@@ -35,7 +35,7 @@ If you use dry-container for class memoization and use `PkceOauth.challenge` wit
 
 ```ruby
 register('pkce_challenge') { PkceOauth::Challenge.new }
-register('pkce_comparator') { PkceOauth::Comparator.new }
+register('pkce_comparator') { PkceOauth::Comparison.new }
 ```
 
 and later call them
